@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="{{ url_for('static', filename='index.css') }}">
+    <script src="{{ url_for('static', filename='index.js') }}"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <link href='https://fonts.googleapis.com/css?family=Pacifico' rel='stylesheet' type='text/css'>
+    <link href='https://fonts.googleapis.com/css?family=Arimo' rel='stylesheet' type='text/css'>
+    <link href='https://fonts.googleapis.com/css?family=Hind:300' rel='stylesheet' type='text/css'>
+    <link href='https://fonts.googleapis.com/css?family=Open+Sans+Condensed:300' rel='stylesheet' type='text/css'>
+    <title>Fake News📰 Detection System</title>
+</head>
+<body>  
+
+
+    <div class="navbar">
+        <div class="project-title">Fake News Detection Project</div>
+        <div class="sections">
+            <a href="#" class="section">Home</a>
+            <a href="#abstract" class="section">Abstract</a>
+            <a href="#team" class="section">Team</a>
+            <a href="#model" class="section">Model</a>
+        </div>
+    </div>
+
+    <div class="dynamic-textbox" id="dynamicTextbox">
+        <div id="projectTitle">Fake News Detection using Hybrid SVM and KNN</div>
+    </div>
+    
+    
+    <div class="image-container">
+        <div class="image-overlay" id="textOverlay">
+            The project aims to develop a hybrid model for fake news detection on social media, 
+            merging Support Vector Machines (SVM) and K-Nearest Neighbors (KNN). It emphasizes 
+            understanding complex dynamics among users, news content, and social networks, integrating 
+            social capital in the framework. The model incorporates multiple machine learning classifiers 
+            for enhanced detection. The study focuses primarily on Twitter for analyzing fake news spread, 
+            with future research aimed at considering a wider range of social media platforms. The proposed 
+            model's effectiveness in detecting fake news is evaluated using Confusion Matrix and ROC Curve 
+            analyses, showcasing its robustness and potential for combating misinformation on social media.<br><br>
+            <a href="#model" id="btnmodel">Go toModel</a>
+        </div>
+        <div class="image-popout" id="imagePopout">
+            <img src="{{ url_for('static', filename='body.jpg') }}" alt="Your Image">
+        </div>
+    </div>
+
+    <div class="content-container" id="abstract">
+        <div class="abstract">
+            <br><br>
+            <h2 style="text-align: center;">Abstract</h2>
+            <p>
+                The proliferation of fake news on social media has become a critical issue, necessitating innovative 
+                detection technologies. Traditional methods relying solely on linguistic and compositional analysis often 
+                prove insufficient against evolving misinformation tactics. To address this challenge, a groundbreaking hybrid 
+                model has been introduced, combining Support Vector Machines (SVM) and K-Nearest Neighbors (KNN) to effectively 
+                detect fake news. This model considers the intricate dynamics between users, news content, and social networks 
+                within the framework of social capital, prioritizing key factors that influence fake news detection. Incorporating 
+                various machine learning classifiers ensures robustness and generalizability, enhancing fake news detection systems 
+                against sophisticated tactics.</p>
+            
+        </div>
+        <div class="pdf-container">
+            <br><br>
+            <iframe src="{{ url_for('static', filename='FakeNewsDetectionJournalPaper.pdf') }}" width="100%" height="700px"></iframe>
+        </div>
+        
+    </div>
+
+
+
+
+    <div class="team-section" id="team">
+        <br><br><br><br>
+        <h2>Project Guide</h2>
+        <div class="team-member guide">
+            <img src="{{ url_for('static', filename='dedeepya.jpg') }}" alt="Project Guide">
+            <div class="member-info">
+                <p>P. Dedeepya</p>
+                <p>Assistant Professor</p>
+            </div>
+        </div>
+        <h2>Team Members</h2>
+        <div class="team-member">
+            <img src="{{ url_for('static', filename='prem.jpg') }}" alt="Project Guide">
+            <div class="member-info">
+                <p>P. Prem Kumar</p>
+                <p>Team Leader</p>
+            </div>
+        </div>
+        <div class="team-member">
+            <img src="{{ url_for('static', filename='koushik.jpg') }}" alt="Project Guide">
+            <div class="member-info">
+                <p>S. Krishna Koushik</p>
+                <p>Team Member</p>
+            </div>
+        </div>
+        <div class="team-member">
+            <img src="{{ url_for('static', filename='raghu.jpg') }}" alt="Project Guide">
+            <div class="member-info">
+                <p>N. Raghavendra</p>
+                <p>Team Member</p>
+            </div>
+        </div><div class="team-member">
+            <img src="{{ url_for('static', filename='Chandhu.jpg') }}" alt="Project Guide">
+            <div class="member-info">
+                <p>P. Chandhu</p>
+                <p>Team Member</p>
+            </div>
+        </div>
+    </div>
+
+
+
+    <!-- Model -->
+
+    <div class="model" id="model">
+        <br><br><br>
+        <h1>Fake News📰  Detector</h1>
+        <form action="{{ url_for('predict')}}" method="POST" class="form">
+                <textarea placeholder="Enter News to Predict" name="message" rows="6" cols="50" required="required" style="font-size: 14pt"></textarea>
+                <br> </br>
+                <button type="submit" class="btn btn-primary btn-block btn-large" id="predictbtn">Predict</button>
+                
+                <div class="results">
+                {% if prediction == 1 %}
+                    <h2 style="color:red;">Looking Like Fake⚠️News📰 </h2>
+                {% elif prediction == 0 %}
+                            <h2 style="color:green;"><b>Looking Like Real News📰</b></h2>
+                {% endif %}
+                </div>
+        </form>
+    </div>
+
+    <br><br><br>    
+
+    <footer class="footer">
+        <div>
+            <p>&copy; 2024 Fake News Detection. All Rights Reserved.</p>
+        </div>
+    </footer>
+
+</body>
+</html>

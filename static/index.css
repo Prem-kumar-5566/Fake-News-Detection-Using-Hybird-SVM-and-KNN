@@ -1,0 +1,282 @@
+:root {
+    scroll-behavior: smooth;
+  }
+  html {
+      scroll-behavior: smooth;
+  }
+  
+  /* Add transitions for smoother dynamic actions */
+  .transition {
+      transition: all 0.3s ease-in-out;
+  }
+  
+  
+  body {
+      margin: 0;
+      padding: 0;
+      font-family: Arial, sans-serif;
+      overflow-y: scroll;
+      background-image: url('background.jpg');
+      background-size: cover;
+      background-attachment: fixed;
+      background-position: center; 
+      color: white;
+  }
+  
+  
+  
+  .navbar {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      background-color: #160c2c;
+      color: white;
+      padding: 10px 20px;
+      position: sticky;
+      top: 0;
+      z-index: 1000;
+  }
+  
+  .project-title {
+      font-size: 1.5em;
+      font-weight: bold;
+  }
+  
+  
+  
+  .dynamic-textbox {
+      margin: 20px;
+      text-align: center;
+      font-weight: bolder;
+      font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+      font-size: 30px;
+  }
+  
+  
+  @keyframes fadeIn {
+      from {
+          opacity: 0;
+          transform: scale(0.3);
+      }
+      to {
+          opacity: 1;
+          transform: scale(1);
+      }
+  }
+  
+  .fade-in {
+      animation: fadeIn 1s ease-in-out;
+  }
+  
+  
+  
+  .sections {
+      display: flex;
+  }
+  
+  .section {
+      padding: 10px 15px;
+      color: white;
+      border-radius: 5px;
+      text-decoration: none;
+  }
+  
+  .section:hover {
+      background-color: #405272;
+  }
+  
+  
+  /*-------------------------------Image Container------------------------------*/
+  
+  
+  .image-container {
+      position: relative;
+      overflow: hidden;
+      width: 100%;
+      height: 500px; 
+  }
+  
+  
+  .image-overlay {
+      position: absolute;
+      width: 30%;
+      top: 50%;
+      left: -200%;
+      transform: translate(-50%, -60%);
+      transition: left 1s;
+  }
+  
+  #textOverlay {
+      width: 35%; /* Adjust the width as needed */
+      margin: 0 auto; /* Center the overlay text horizontally */
+  }
+  
+  #btnmodel{
+      color: #160c2c;
+      font-weight: bolder;
+      padding: 5px;
+      border-radius: 5px;
+      text-decoration: none;
+      background-color: aliceblue;
+  }
+  
+  #btnmodel:hover{
+      background-color: #9297a0;
+  }
+  
+  .image-popout {
+      position: relative;
+      top: 40%;
+      left: 100%;
+      transform: translate(-50%, -50%) scale(0);
+      transition: transform 1.0s ease-in-out;
+      z-index: -1;
+  }
+  
+  .image-popout img {
+      width: 500px; 
+      height: 250px;
+      box-shadow: 0 0 30px #495265fa; /* Add a shadow effect */
+      border-radius: 10px;
+  }
+  
+  
+  
+  /*--------------Abstract-----------------------*/
+  
+  
+  .content-container {
+      display: flex;
+      padding: 20px;
+  }
+  .abstract {
+      width: 50%;
+      float: left;
+      padding: 20px;
+  }
+  
+  .pdf-container {
+      width: 50%;
+      float: right;
+      padding: 20px;
+      border-radius: 10px;
+  }
+  
+  .pdf-container iframe{
+      border-radius: 10px;
+      background-color: #160c2c;
+      height: 130%;
+      width: 100%;
+      opacity: 0;
+      transition: opacity 1s;
+  }
+  
+  /* Animation for fading in the iframe */
+  .pdf-container iframe.fade-in {
+      opacity: 1;
+  }
+  
+  /* Clear floats after the content */
+  .content-container::after {
+      content: "";
+      display: table;
+      clear: both;
+  }
+  
+  
+  /*  Team Members    */
+  
+  .team-section {
+      text-align: center;
+      margin-top: 50px;
+  }
+  
+  .team-member {
+      display: inline-block;
+      margin: 20px;
+  }
+  
+  .team-member img {
+      max-width: 200px;
+      border-radius: 10%;
+      border: 3px solid #333;
+      height: 250px;
+      width: 170px;
+      opacity: 0;
+      transition: opacity 1s;
+  }
+  
+  /* Animation for fading in team member photos */
+  .team-member img.fade-in {
+      opacity: 1;
+  }
+  .member-info {
+      margin-top: 20px;
+      font-weight: bold;
+  }
+  .team-member.guide {
+      position: relative;
+      left: 0%; /* Initially position the guide member off-screen to the left */
+      transition: left 3.5s ease; /* Apply transition for smooth movement */
+  }
+  
+  .team-member.guide.slide {
+      left: 0; /* Move the guide member to the center when the 'slide' class is added */
+  }
+  .team-member img {
+      transition: transform 0.1s;
+  }
+  
+  .team-member img:hover {
+      transform: scale(1.1);
+  }
+  
+  
+  
+  
+  /* MOdel   CSS*/
+  
+  .model{
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      border-radius: 10px;
+      text-align: center;
+  }
+  .model textarea{
+      border: none;
+      outline: none;
+      
+  
+  }
+  .model button{
+      width: 200px;
+      height: 50px;
+      border-radius: 5px;
+      border: none;
+      background-color: #0b0252;
+      color: aliceblue;
+      font-size: 25px;
+      font-weight:bolder;
+  }
+  
+  #predictbtn:hover{
+      background-color: rgb(65, 94, 118);
+      width: 210px;
+      height: 53px;
+      cursor: pointer;
+  }
+  
+  .form textarea{
+      border-radius: 10px;
+  }
+  
+  /* Existing CSS styles */
+  .footer {
+      background-color: #160c2c;
+      color: white;
+      text-align: center;
+      padding: 20px;
+      
+  }
+  
